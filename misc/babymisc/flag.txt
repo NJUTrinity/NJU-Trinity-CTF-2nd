@@ -1,0 +1,1 @@
+TrinityCTF{AsciiDots_FUN?}

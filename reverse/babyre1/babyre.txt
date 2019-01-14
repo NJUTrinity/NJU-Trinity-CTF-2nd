@@ -1,0 +1,127 @@
+	.file	"babyre.c"
+	.text
+	.section	.rodata
+	.align 8
+.LC0:
+	.string	"Yang Guo is going to kill Yin Zhiping, do you know why?"
+.LC1:
+	.string	"You don't know a shit!"
+	.align 8
+.LC2:
+	.string	"OH correct! How do u know that? Did you see it happen?"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$336, %rsp
+	movq	%fs:40, %rax
+	movq	%rax, -8(%rbp)
+	xorl	%eax, %eax
+	movabsq	$8391173012105687380, %rax
+	movabsq	$5789173264242261050, %rdx
+	movq	%rax, -320(%rbp)
+	movq	%rdx, -312(%rbp)
+	movabsq	$6649891586015310904, %rax
+	movabsq	$6648551531339277428, %rdx
+	movq	%rax, -304(%rbp)
+	movq	%rdx, -296(%rbp)
+	movl	$1846765922, -288(%rbp)
+	movb	$0, -284(%rbp)
+	leaq	.LC0(%rip), %rdi
+	call	puts@PLT
+	leaq	-272(%rbp), %rax
+	movl	$256, %edx
+	movl	$0, %esi
+	movq	%rax, %rdi
+	call	memset@PLT
+	leaq	-272(%rbp), %rax
+	movl	$255, %edx
+	movq	%rax, %rsi
+	movl	$0, %edi
+	movl	$0, %eax
+	call	read@PLT
+	subl	$1, %eax
+	cltq
+	movb	$0, -272(%rbp,%rax)
+	leaq	-272(%rbp), %rax
+	movq	%rax, %rdi
+	call	strlen@PLT
+	movl	%eax, -324(%rbp)
+	cmpl	$36, -324(%rbp)
+	je	.L2
+	leaq	.LC1(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$0, %edi
+	call	exit@PLT
+.L2:
+	movl	$0, -328(%rbp)
+	jmp	.L3
+.L4:
+	movl	-328(%rbp), %eax
+	cltq
+	movzbl	-272(%rbp,%rax), %eax
+	movl	%eax, %esi
+	movl	-328(%rbp), %ecx
+	movl	$1717986919, %edx
+	movl	%ecx, %eax
+	imull	%edx
+	sarl	$3, %edx
+	movl	%ecx, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	movl	%edx, %eax
+	sall	$2, %eax
+	addl	%edx, %eax
+	sall	$2, %eax
+	subl	%eax, %ecx
+	movl	%ecx, %edx
+	movl	%edx, %eax
+	subl	%eax, %esi
+	movl	%esi, %eax
+	movl	%eax, %edx
+	movl	-328(%rbp), %eax
+	cltq
+	movb	%dl, -272(%rbp,%rax)
+	addl	$1, -328(%rbp)
+.L3:
+	movl	-328(%rbp), %eax
+	cmpl	-324(%rbp), %eax
+	jl	.L4
+	movl	-324(%rbp), %eax
+	movslq	%eax, %rdx
+	leaq	-320(%rbp), %rcx
+	leaq	-272(%rbp), %rax
+	movq	%rcx, %rsi
+	movq	%rax, %rdi
+	call	memcmp@PLT
+	testl	%eax, %eax
+	jne	.L5
+	leaq	.LC2(%rip), %rdi
+	call	puts@PLT
+	jmp	.L6
+.L5:
+	leaq	.LC1(%rip), %rdi
+	call	puts@PLT
+.L6:
+	movl	$0, %eax
+	movq	-8(%rbp), %rsi
+	xorq	%fs:40, %rsi
+	je	.L8
+	call	__stack_chk_fail@PLT
+.L8:
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0"
+	.section	.note.GNU-stack,"",@progbits
