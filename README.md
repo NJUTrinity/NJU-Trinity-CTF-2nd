@@ -127,6 +127,9 @@ Note: 上述是HCTF的非预期解。预期解是依赖于MySQL新版本的保�
 #### Babyre2
 和作业题是一样的思路。`main`函数被简单的加密了。详情看题目的源代码即可。
 
+#### 真假秘籍
+在NormalFunction中改写了check程序的逻辑，将xor 0x11改为了xor 0x7e，知道这个之后就能写脚本跑出flag了
+
 ### Crypto
 #### yafu
 简单的题目。安装yafu即可，百度也能搜索到yafu的使用方法。直接暴力破解这个大数，然后使用gmpy2将密文解密即可
